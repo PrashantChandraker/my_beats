@@ -16,6 +16,9 @@ class _SettingsPageState extends State<SettingsPage> {
         backgroundColor: Theme.of(context).colorScheme.primary,
         centerTitle: true,
       ),
+      body: Container(
+        decoration: BoxDecoration(color:Theme.of(context).colorScheme.surface, ),
+      ),
     );
   }
 }
