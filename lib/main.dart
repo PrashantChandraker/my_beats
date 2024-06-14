@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_beats/themes/light_mode.dart';
 
 import 'homepage.dart';
 
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
      debugShowCheckedModeBanner: false,
      home: HomePage(),
+    //  theme: LightMode,
      
     );
   }
