@@ -13,6 +13,13 @@ class SongPage extends StatefulWidget {
 }
 
 class _SongPageState extends State<SongPage> {
+  // convert duration into min:sec
+  String formatTime(Duration duration){
+    String twoDigitSeconds= duration.inSeconds.remainder(60).toString().padLeft(2,'0');
+    String formattedTime = '${duration.inMinutes}:$twoDigitSeconds';
+  return formattedTime;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<PlayListProvider>(
@@ -123,6 +130,7 @@ class _SongPageState extends State<SongPage> {
                   ],
                 ),
               ),
+              Spacer(),
 
               // song duration progress
               Row(
@@ -130,7 +138,7 @@ class _SongPageState extends State<SongPage> {
                 children: [
                   // start time
                   Text(
-                    '0:00',
+                   formatTime(value.currentDuration),
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.inversePrimary,
                     ),
@@ -154,7 +162,7 @@ class _SongPageState extends State<SongPage> {
                   ),
                   // end time
                   Text(
-                    '0:00',
+                    formatTime(value.totalDuration),
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.inversePrimary,
                     ),
@@ -191,7 +199,7 @@ class _SongPageState extends State<SongPage> {
               // playback controlls
 
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                padding: const EdgeInsets.only(left: 30.0, right: 30, bottom: 30),
                 child: Row(
                   children: [
                     // skip button

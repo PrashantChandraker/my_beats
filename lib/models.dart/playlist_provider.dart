@@ -17,7 +17,7 @@ class PlayListProvider extends ChangeNotifier {
     Song(
         songName: 'One Love',
         artistName: 'Subh',
-        albumArtImagePath: 'assets/images/lehnga_poster2.jpg',
+        albumArtImagePath: 'assets/images/lehnga_poster.jpg',
         audioPath: 'assets/audio/lehnga.mp3'),
 
     //song 1
@@ -89,6 +89,7 @@ class PlayListProvider extends ChangeNotifier {
     if (_currentSongIndex != null) {
       if (currentSongIndex! < _playlist.length - 1) {
         //go to the next song if its not the last song
+        currentSongIndex = _currentSongIndex! + 1;
       } else {
         //if  its the last song, loop back to the first song
         currentSongIndex = 0;
@@ -100,6 +101,7 @@ class PlayListProvider extends ChangeNotifier {
   void playPreviousSong() async {
     // if more tham 2 seconds have passed, restart the current song
     if (_currentDuation.inSeconds > 2) {
+      seek(Duration.zero);
     }
     // if its within first 2 second of the song go to previous song
     else {

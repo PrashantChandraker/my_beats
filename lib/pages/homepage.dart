@@ -59,6 +59,8 @@ class _HomePageState extends State<HomePage> {
 
         //return list view UI
         return ListView.builder(
+          padding: EdgeInsets.symmetric(vertical: 5),
+          physics: AlwaysScrollableScrollPhysics(),
           itemCount: playlist.length,
           itemBuilder: (context, index) {
             //get individual song
@@ -81,7 +83,10 @@ class _HomePageState extends State<HomePage> {
                   fontSize: 13
                 ),
               ),
-              leading: Image.asset(song.albumArtImagePath),
+              leading: Container(
+                height: 80,
+                width: 60,
+                child: Image.asset(song.albumArtImagePath)),
               onTap: () => goToSong(index),
             );
           },
