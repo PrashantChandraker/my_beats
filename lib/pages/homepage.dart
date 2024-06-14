@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../components/my_drawer.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -15,7 +17,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(title: Text('P L A Y L I S T'),
       backgroundColor: Theme.of(context).colorScheme.primary,
       centerTitle: true,),
-      drawer: Drawer(),
+      drawer: MyDrawer(),
     );
   }
 }

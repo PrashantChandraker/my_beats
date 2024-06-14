@@ -3,7 +3,7 @@ import 'package:my_beats/themes/light_mode.dart';
 import 'package:my_beats/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-import 'homepage.dart';
+import 'pages/homepage.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(create: (context) => ThemeProvider(),
