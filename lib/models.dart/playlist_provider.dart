@@ -11,21 +11,21 @@ class PlayListProvider extends ChangeNotifier {
         songName: 'Lehnga',
         artistName: 'Jass Manak',
         albumArtImagePath: 'assets/images/lehnga_poster2.jpg',
-        audioPath: 'assets/audio/lehnga.mp3'),
+        audioPath: 'lehnga.mp3'),
 
     //song 1
     Song(
         songName: 'One Love',
         artistName: 'Subh',
         albumArtImagePath: 'assets/images/lehnga_poster.jpg',
-        audioPath: 'assets/audio/lehnga.mp3'),
+        audioPath: 'lehnga.mp3'),
 
     //song 1
     Song(
         songName: 'Daru Badnam',
         artistName: 'Jassie Gill',
         albumArtImagePath: 'assets/images/lehnga_poster2.jpg',
-        audioPath: 'assets/audio/lehnga.mp3')
+        audioPath: 'lehnga.mp3')
   ];
 
   // current song playing index
@@ -34,7 +34,7 @@ class PlayListProvider extends ChangeNotifier {
 //////////// audio player  ///////////
 
 //audio player
-  final AudioPlayer _audioPlayer = AudioPlayer();
+  final  _audioPlayer = AudioPlayer();
 // duration
   Duration _currentDuation = Duration.zero;
   Duration _totalDuration = Duration.zero;
@@ -49,6 +49,7 @@ class PlayListProvider extends ChangeNotifier {
 // play the song
   void play() async {
     final String path = _playlist[_currentSongIndex!].audioPath;
+    print('Attempt to play the path :$path');
     await _audioPlayer.stop();
     await _audioPlayer.play(AssetSource(path));
     _isPlaying = true;
@@ -92,8 +93,9 @@ class PlayListProvider extends ChangeNotifier {
         currentSongIndex = _currentSongIndex! + 1;
       } else {
         //if  its the last song, loop back to the first song
-        currentSongIndex = 0;
+        _currentSongIndex = 0;
       }
+      play(); // play the new song
     }
   }
 
@@ -111,6 +113,7 @@ class PlayListProvider extends ChangeNotifier {
         // if its the first song , loop back to the last song
         currentSongIndex = _playlist.length -1;
       }
+      play(); // play the song
     }
   }
 
@@ -123,6 +126,7 @@ class PlayListProvider extends ChangeNotifier {
     });
     // listen for current duration
     _audioPlayer.onPositionChanged.listen((newPosition) {
+    _currentDuation = newPosition; // fix duration update through chatgpt
       notifyListeners();
     });
     // listen for song completion
@@ -132,6 +136,14 @@ class PlayListProvider extends ChangeNotifier {
   }
 
 // dispose audio player
+
+@override
+// void dispose(){
+//   _audioPlayer(){
+//     _audioPlayer.dispose();
+//     super.dispose();
+//   }
+// }
 
   /////////// GETTERS  //////////////
 
