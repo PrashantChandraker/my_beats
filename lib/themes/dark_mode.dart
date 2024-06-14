@@ -4,7 +4,12 @@ ThemeData darkMode = ThemeData(
   colorScheme: ColorScheme.light(
     surface: Colors.grey.shade900,
     primary: Colors.grey.shade600,
-    secondary: Colors.grey.shade800,
-    inversePrimary:Colors.white
+   
+    inversePrimary:Colors.grey,
+    onPrimary: Colors.white70,
+    error: Colors.grey.shade500,
+
+    // for dark neumorphic design
+     secondary: Colors.grey.shade500,
   )
 );
