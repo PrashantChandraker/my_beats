@@ -64,7 +64,7 @@ flutter:
   assets:
     - assets/music_icon.png
     - assets/images/
-    - assets/lehnga.mp3
+    - assets/audio/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

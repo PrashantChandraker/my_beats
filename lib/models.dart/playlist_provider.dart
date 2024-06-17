@@ -11,21 +11,21 @@ class PlayListProvider extends ChangeNotifier {
         songName: 'Lehnga',
         artistName: 'Jass Manak',
         albumArtImagePath: 'assets/images/lehnga_poster2.jpg',
-        audioPath: 'lehnga.mp3'),
+        audioPath: 'audio/lehnga.mp3'),
 
     //song 1
     Song(
         songName: 'One Love',
         artistName: 'Subh',
-        albumArtImagePath: 'assets/images/lehnga_poster.jpg',
-        audioPath: 'lehnga.mp3'),
+        albumArtImagePath: 'assets/images/one_love.jpg',
+        audioPath: 'audio/one_love.mp3'),
 
     //song 1
     Song(
-        songName: 'Daru Badnam',
-        artistName: 'Jassie Gill',
-        albumArtImagePath: 'assets/images/lehnga_poster2.jpg',
-        audioPath: 'lehnga.mp3')
+        songName: 'King Shit',
+        artistName: 'Subh',
+        albumArtImagePath: 'assets/images/king_shit.png',
+        audioPath: 'audio/king_shit.mp3')
   ];
 
   // current song playing index
